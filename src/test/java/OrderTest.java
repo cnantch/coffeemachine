@@ -36,4 +36,14 @@ public class OrderTest {
     public void should_return_the_chocolate_and_the_sugar_and_the_stick_when_the_customer_ask_for_this() throws Exception {
         Assert.assertEquals("H:1:0", Order.createOrder("H:1:0").getMessage());
     }
+
+    @Test
+    public void should_return_incorrect_order_when_the_customer_do_incorrect_order_cofee() throws Exception {
+        Assert.assertEquals(Order.INCORRECT_ORDER, Order.createOrder("C:1").getMessage());
+    }
+
+    @Test
+    public void should_return_incorrect_order_when_the_customer_do_incorrect_order_cofee_stick() throws Exception {
+        Assert.assertEquals(Order.INCORRECT_ORDER, Order.createOrder("C:1:1").getMessage());
+    }
 }

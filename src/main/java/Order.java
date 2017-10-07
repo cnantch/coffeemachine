@@ -1,5 +1,9 @@
+import java.util.regex.Pattern;
+
 public class Order {
+
     public static final String INCORRECT_ORDER = "incorrect order";
+    public static final Pattern VALIDATION_ORDER_PATTERN = Pattern.compile("M:.*|(^(T|C|H):[0-9]:0)");
     private String message;
 
     private Order(String message) {
@@ -7,8 +11,7 @@ public class Order {
     }
 
     public static Order createOrder(String message) {
-        if (!message.startsWith("M:") && !message.startsWith("T:") && !message.startsWith("C:")
-                && !message.startsWith("H:")) {
+        if (!VALIDATION_ORDER_PATTERN.matcher(message).matches()) {
             return new Order(INCORRECT_ORDER);
         }
         return new Order(message);
