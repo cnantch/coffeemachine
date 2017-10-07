@@ -6,6 +6,9 @@ public class Order {
     }
 
     public static Order createOrder(String message) {
+        if (!message.startsWith("M:") && !message.startsWith("T:")) {
+            return new Order("incorrect order");
+        }
         return new Order(message);
     }
 

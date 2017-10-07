@@ -16,6 +16,10 @@ public class OrderTest {
     @Test
     public void should_return_the_tea_when_the_customer_ask_the_tea() throws Exception {
         Assert.assertEquals("T:0:0", Order.createOrder("T:0:0").getMessage());
+    }
 
+    @Test
+    public void should_return_incorrect_order_when_the_customer_do_incorrect_order() throws Exception {
+        Assert.assertEquals("incorrect order", Order.createOrder("T").getMessage());
     }
 }
