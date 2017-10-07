@@ -25,11 +25,11 @@ public class OrderTest {
 
     @Test
     public void should_return_the_cofee_and_the_sugar_and_the_stick_when_the_customer_ask_for_this() throws Exception {
-        Assert.assertEquals("C:1:0", Order.createOrder("C:1:0").getMessage());
+        Assert.assertEquals("C:1:0", Order.createOrder(Drink.COFFEE.getName()+":1:0").getMessage());
     }
     @Test
     public void should_return_the_cofee_and_two_sugars_and_the_stick_when_the_customer_ask_for_this() throws Exception {
-        Assert.assertEquals("C:2:0", Order.createOrder("C:2:0").getMessage());
+        Assert.assertEquals("C:2:0", Order.createOrder(Drink.COFFEE.getName()+":2:0").getMessage());
     }
 
     @Test

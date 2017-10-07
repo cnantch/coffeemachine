@@ -1,6 +1,6 @@
 public enum Drink {
 
-    TEA("T", 0.4);
+    TEA("T", 0.4), COFFEE("C", 0.6);
 
 
     private final String name;
