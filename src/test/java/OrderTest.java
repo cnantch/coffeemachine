@@ -25,16 +25,17 @@ public class OrderTest {
 
     @Test
     public void should_return_the_cofee_and_the_sugar_and_the_stick_when_the_customer_ask_for_this() throws Exception {
-        Assert.assertEquals("C:1:0", Order.createOrder(Drink.COFFEE.getName()+":1:0").getMessage());
+        Assert.assertEquals("C:1:0", Order.createOrder(Drink.COFFEE.getName() + ":1:0").getMessage());
     }
+
     @Test
     public void should_return_the_cofee_and_two_sugars_and_the_stick_when_the_customer_ask_for_this() throws Exception {
-        Assert.assertEquals("C:2:0", Order.createOrder(Drink.COFFEE.getName()+":2:0").getMessage());
+        Assert.assertEquals("C:2:0", Order.createOrder(Drink.COFFEE.getName() + ":2:0").getMessage());
     }
 
     @Test
     public void should_return_the_chocolate_and_the_sugar_and_the_stick_when_the_customer_ask_for_this() throws Exception {
-        Assert.assertEquals("H:1:0", Order.createOrder(Drink.CHOCOLATE.getName()+":1:0").getMessage());
+        Assert.assertEquals("H:1:0", Order.createOrder(Drink.CHOCOLATE.getName() + ":1:0").getMessage());
     }
 
     @Test
@@ -50,14 +51,22 @@ public class OrderTest {
     @Test
     public void should_return_ok_when_the_customer_ask_for_the_chocolate() throws Exception {
         Order order = Order.createOrder(Drink.CHOCOLATE, 1, 0.5);
-        Assert.assertEquals("H:1:0",order.getMessage());
+        Assert.assertEquals("H:1:0", order.getMessage());
         Assert.assertEquals("OK", order.getResult());
     }
 
     @Test
     public void should_return_ok_when_the_customer_ask_for_the_cofee() throws Exception {
         Order order = Order.createOrder(Drink.COFFEE, 2, 0.6);
-        Assert.assertEquals("C:2:0",order.getMessage());
+        Assert.assertEquals("C:2:0", order.getMessage());
         Assert.assertEquals("OK", order.getResult());
     }
+
+    @Test
+    public void should_return_ok_when_the_customer_ask_for_the_tea() throws Exception {
+        Order order = Order.createOrder(Drink.TEA, 0, 0.4);
+        Assert.assertEquals("T:0:0", order.getMessage());
+        Assert.assertEquals("OK", order.getResult());
+    }
+
 }
