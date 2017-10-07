@@ -6,6 +6,7 @@ public class Order {
 
     public static final String INCORRECT_ORDER = "incorrect order";
     public static final Pattern VALIDATION_ORDER_PATTERN = Pattern.compile("M:.*|(^(T|C|H):[0-9]:0)");
+    public static final DecimalFormat format = new DecimalFormat("#,##0.0");
 
     private Drink drink;
     private int nbSugars;
@@ -50,7 +51,7 @@ public class Order {
     }
 
     public String getResult() {
-        DecimalFormat format = new DecimalFormat("#,##0.0");
+
         if (price.doubleValue() >= drink.getPrice().doubleValue()) {
             return "OK";
         }

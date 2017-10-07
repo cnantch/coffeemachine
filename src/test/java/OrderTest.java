@@ -92,12 +92,22 @@ public class OrderTest {
         Assert.assertEquals("OK", order.getResult());
     }
 
-
-
     @Test
     public void should_return_ok_when_the_customer_ask_for_the_tea() throws Exception {
         Order order = Order.createOrder(Drink.TEA, 0, BigDecimal.valueOf(0.4));
         Assert.assertEquals("T:0:0", order.getMessage());
+        Assert.assertEquals("OK", order.getResult());
+    }
+
+    @Test
+    public void should_return_ko_when_the_customer_ask_for_the_tea() throws Exception {
+        Order order = Order.createOrder(Drink.TEA, 1, BigDecimal.valueOf(0.3));
+        Assert.assertEquals("KO,missing 0,1", order.getResult());
+    }
+
+    @Test
+    public void should_return_ok_when_the_customer_ask_for_the_tea_with_price_upper() throws Exception {
+        Order order = Order.createOrder(Drink.TEA, 1, BigDecimal.valueOf(0.7));
         Assert.assertEquals("OK", order.getResult());
     }
 
