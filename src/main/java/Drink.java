@@ -1,12 +1,14 @@
+import java.math.BigDecimal;
+
 public enum Drink {
 
-    TEA("T", 0.4), COFFEE("C", 0.6), CHOCOLATE("H", 0.5);
+    TEA("T", new BigDecimal(0.4)), COFFEE("C", new BigDecimal(0.6)), CHOCOLATE("H", new BigDecimal(0.5));
 
 
     private final String name;
-    private final double price;
+    private final BigDecimal price;
 
-    Drink(String name, double price) {
+    Drink(String name, BigDecimal price) {
 
         this.name = name;
         this.price = price;
@@ -17,7 +19,7 @@ public enum Drink {
         return name;
     }
 
-    public double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 }

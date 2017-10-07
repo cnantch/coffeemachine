@@ -1,6 +1,8 @@
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.math.BigDecimal;
+
 public class OrderTest {
 
     @Test
@@ -50,21 +52,30 @@ public class OrderTest {
 
     @Test
     public void should_return_ok_when_the_customer_ask_for_the_chocolate() throws Exception {
-        Order order = Order.createOrder(Drink.CHOCOLATE, 1, 0.5);
+        Order order = Order.createOrder(Drink.CHOCOLATE, 1, BigDecimal.valueOf(0.5));
         Assert.assertEquals("H:1:0", order.getMessage());
         Assert.assertEquals("OK", order.getResult());
     }
 
     @Test
+    public void should_return_ko_when_the_customer_ask_for_the_chocolate() throws Exception {
+        Order order = Order.createOrder(Drink.CHOCOLATE, 1, BigDecimal.valueOf(0.4));
+        Assert.assertEquals("H:1:0", order.getMessage());
+        Assert.assertEquals("KO,missing 0.1", order.getResult());
+    }
+
+    @Test
     public void should_return_ok_when_the_customer_ask_for_the_cofee() throws Exception {
-        Order order = Order.createOrder(Drink.COFFEE, 2, 0.6);
+        Order order = Order.createOrder(Drink.COFFEE, 2, BigDecimal.valueOf(0.6));
         Assert.assertEquals("C:2:0", order.getMessage());
         Assert.assertEquals("OK", order.getResult());
     }
 
+
+
     @Test
     public void should_return_ok_when_the_customer_ask_for_the_tea() throws Exception {
-        Order order = Order.createOrder(Drink.TEA, 0, 0.4);
+        Order order = Order.createOrder(Drink.TEA, 0, BigDecimal.valueOf(0.4));
         Assert.assertEquals("T:0:0", order.getMessage());
         Assert.assertEquals("OK", order.getResult());
     }

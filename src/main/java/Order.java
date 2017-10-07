@@ -1,3 +1,4 @@
+import java.math.BigDecimal;
 import java.util.regex.Pattern;
 
 public class Order {
@@ -8,13 +9,13 @@ public class Order {
     private Drink drink;
     private int nbSugars;
     private String message;
-    private double price;
+    private BigDecimal price;
 
     private Order(String message) {
         this.message = message;
     }
 
-    public Order(String message, double price) {
+    public Order(String message, BigDecimal price) {
         this.message = message;
         this.price = price;
     }
@@ -26,7 +27,7 @@ public class Order {
         return new Order(message);
     }
 
-    public static Order createOrder(Drink drink, int nbSugars, double price) {
+    public static Order createOrder(Drink drink, int nbSugars, BigDecimal price) {
         Order order = createNewOrder(drink, nbSugars);
         order.price = price;
         return order;
@@ -36,7 +37,7 @@ public class Order {
         return message;
     }
 
-    public double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
@@ -48,9 +49,9 @@ public class Order {
     }
 
     public String getResult() {
-        if (price == drink.getPrice()) {
+        if (drink.getPrice().doubleValue() == price.doubleValue()) {
             return "OK";
         }
-        return "KO";
+        return "KO,missing "+drink.getPrice().subtract(price).toString();
     }
 }
