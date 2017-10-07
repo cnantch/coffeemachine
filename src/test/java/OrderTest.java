@@ -15,7 +15,7 @@ public class OrderTest {
 
     @Test
     public void should_return_the_tea_when_the_customer_ask_the_tea() throws Exception {
-        Assert.assertEquals("T:0:0", Order.createOrder("T:0:0").getMessage());
+        Assert.assertEquals(Drink.TEA.getName()+":0:0", Order.createOrder("T:0:0").getMessage());
     }
 
     @Test
