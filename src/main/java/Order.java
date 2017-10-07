@@ -7,7 +7,8 @@ public class Order {
     }
 
     public static Order createOrder(String message) {
-        if (!message.startsWith("M:") && !message.startsWith("T:") && !message.startsWith("C:")) {
+        if (!message.startsWith("M:") && !message.startsWith("T:") && !message.startsWith("C:")
+                && !message.startsWith("H:")) {
             return new Order(INCORRECT_ORDER);
         }
         return new Order(message);

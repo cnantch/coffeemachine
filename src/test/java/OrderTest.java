@@ -32,4 +32,8 @@ public class OrderTest {
         Assert.assertEquals("C:2:0", Order.createOrder("C:2:0").getMessage());
     }
 
+    @Test
+    public void should_return_the_chocolate_and_the_sugar_and_the_stick_when_the_customer_ask_for_this() throws Exception {
+        Assert.assertEquals("H:1:0", Order.createOrder("H:1:0").getMessage());
+    }
 }
