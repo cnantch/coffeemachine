@@ -20,6 +20,6 @@ public class OrderTest {
 
     @Test
     public void should_return_incorrect_order_when_the_customer_do_incorrect_order() throws Exception {
-        Assert.assertEquals("incorrect order", Order.createOrder("T").getMessage());
+        Assert.assertEquals(Order.INCORRECT_ORDER, Order.createOrder("T").getMessage());
     }
 }
