@@ -15,7 +15,7 @@ public class OrderTest {
 
     @Test
     public void should_return_the_tea_when_the_customer_ask_the_tea() throws Exception {
-        Assert.assertEquals(Drink.TEA.getName()+":0:0", Order.createOrder("T:0:0").getMessage());
+        Assert.assertEquals("T:0:0", Order.createNewOrder(Drink.TEA, 0).getMessage());
     }
 
     @Test
@@ -45,5 +45,12 @@ public class OrderTest {
     @Test
     public void should_return_incorrect_order_when_the_customer_do_incorrect_order_cofee_stick() throws Exception {
         Assert.assertEquals(Order.INCORRECT_ORDER, Order.createOrder("C:1:1").getMessage());
+    }
+
+    @Test
+    public void should_return_ok_when_the_customer_ask_for_the_chocolate() throws Exception {
+        Order order = Order.createOrder(Drink.CHOCOLATE, 1, 0.5);
+        Assert.assertEquals("H:1:0",order.getMessage());
+        Assert.assertEquals("OK", order.getResult());
     }
 }
