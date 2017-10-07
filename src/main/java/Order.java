@@ -1,4 +1,5 @@
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.regex.Pattern;
 
 public class Order {
@@ -49,9 +50,10 @@ public class Order {
     }
 
     public String getResult() {
+        DecimalFormat format = new DecimalFormat("#,##0.0");
         if (price.doubleValue() >= drink.getPrice().doubleValue()) {
             return "OK";
         }
-        return "KO,missing "+drink.getPrice().subtract(price).toString();
+        return "KO,missing "+ format.format(drink.getPrice().subtract(price));
     }
 }

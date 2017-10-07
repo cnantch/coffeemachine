@@ -61,7 +61,7 @@ public class OrderTest {
     public void should_return_ko_when_the_customer_ask_for_the_chocolate() throws Exception {
         Order order = Order.createOrder(Drink.CHOCOLATE, 1, BigDecimal.valueOf(0.4));
         Assert.assertEquals("H:1:0", order.getMessage());
-        Assert.assertEquals("KO,missing 0.1", order.getResult());
+        Assert.assertEquals("KO,missing 0,1", order.getResult());
     }
 
     @Test
@@ -76,6 +76,19 @@ public class OrderTest {
     public void should_return_ok_when_the_customer_ask_for_the_cofee() throws Exception {
         Order order = Order.createOrder(Drink.COFFEE, 2, BigDecimal.valueOf(0.6));
         Assert.assertEquals("C:2:0", order.getMessage());
+        Assert.assertEquals("OK", order.getResult());
+    }
+
+
+    @Test
+    public void should_return_ko_when_the_customer_ask_for_the_cofee() throws Exception {
+        Order order = Order.createOrder(Drink.COFFEE, 1, BigDecimal.valueOf(0.2));
+        Assert.assertEquals("KO,missing 0,4", order.getResult());
+    }
+
+    @Test
+    public void should_return_ok_when_the_customer_ask_for_the_coffee_with_price_upper() throws Exception {
+        Order order = Order.createOrder(Drink.COFFEE, 1, BigDecimal.valueOf(0.7));
         Assert.assertEquals("OK", order.getResult());
     }
 
