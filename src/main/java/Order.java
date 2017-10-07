@@ -11,6 +11,6 @@ public class Order {
 
 
     public String getMessage() {
-        return "M:";
+        return message;
     }
 }
