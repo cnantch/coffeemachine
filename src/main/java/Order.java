@@ -49,7 +49,7 @@ public class Order {
     }
 
     public String getResult() {
-        if (drink.getPrice().doubleValue() == price.doubleValue()) {
+        if (price.doubleValue() >= drink.getPrice().doubleValue()) {
             return "OK";
         }
         return "KO,missing "+drink.getPrice().subtract(price).toString();
