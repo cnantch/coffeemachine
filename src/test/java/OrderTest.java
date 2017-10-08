@@ -120,4 +120,9 @@ public class OrderTest {
     public void should_return_incorrect_order_when_the_customer_ask_the_orange_juice_wrong() throws Exception {
         Assert.assertEquals(Order.INCORRECT_ORDER, Order.createOrder(Drink.ORANGE_JUICE.getName() + ":1:0").getMessage());
     }
+
+    @Test
+    public void should_return_the_orange_juice_when_the_customer_ask_the_orange_juice_with_the_good_price() throws Exception {
+        Assert.assertEquals("OK", Order.createOrder(Drink.ORANGE_JUICE, 0, BigDecimal.valueOf(0.6)).getResult());
+    }
 }
