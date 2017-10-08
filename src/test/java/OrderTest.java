@@ -141,4 +141,14 @@ public class OrderTest {
     public void should_return_the_extra_hot_cofee_when_the_customer_ask_for_this() throws Exception {
         Assert.assertEquals("Ch::", Order.createOrder("Ch::").getMessage());
     }
+
+    @Test
+    public void should_return_the_extra_hot_chocolate_with_two_sugars_when_the_customer_ask_for_this() throws Exception {
+        Assert.assertEquals("Hh:2:0", Order.createOrder("Hh:2:0").getMessage());
+    }
+
+    @Test
+    public void should_return_the_extra_hot_tea_with_one_sugar_when_the_customer_ask_for_this() throws Exception {
+        Assert.assertEquals("Th:1:0", Order.createOrder("Th:1:0").getMessage());
+    }
 }
