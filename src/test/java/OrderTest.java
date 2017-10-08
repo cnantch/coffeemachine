@@ -131,4 +131,14 @@ public class OrderTest {
         Order order = Order.createOrder(Drink.ORANGE_JUICE, 0, BigDecimal.valueOf(0.3));
         Assert.assertEquals("KO,missing 0,3", order.getResult());
     }
+
+    @Test
+    public void should_return_the_cofee_when_the_customer_ask_for_this() throws Exception {
+        Assert.assertEquals("C::", Order.createOrder("C::").getMessage());
+    }
+
+    @Test
+    public void should_return_the_extra_hot_cofee_when_the_customer_ask_for_this() throws Exception {
+        Assert.assertEquals("Ch::", Order.createOrder("Ch::").getMessage());
+    }
 }

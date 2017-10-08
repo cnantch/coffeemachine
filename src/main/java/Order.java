@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 public class Order {
 
     public static final String INCORRECT_ORDER = "incorrect order";
-    public static final Pattern VALIDATION_ORDER_PATTERN = Pattern.compile("M:.*|(^(T|C|H):[0-9]:0)|O::");
+    public static final Pattern VALIDATION_ORDER_PATTERN = Pattern.compile("M:.*|(^(T|C|H)h{0,1}:[0-9]{0,1}:0{0,1})|O::");
     public static final DecimalFormat format = new DecimalFormat("#,##0.0");
 
     private Drink drink;
