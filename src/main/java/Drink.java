@@ -2,7 +2,7 @@ import java.math.BigDecimal;
 
 public enum Drink {
 
-    TEA("T", new BigDecimal(0.4)), COFFEE("C", new BigDecimal(0.6)), CHOCOLATE("H", new BigDecimal(0.5));
+    TEA("T", new BigDecimal(0.4)), COFFEE("C", new BigDecimal(0.6)), CHOCOLATE("H", new BigDecimal(0.5)), ORANGE_JUICE("O", new BigDecimal(0.6) );
 
 
     private final String name;
