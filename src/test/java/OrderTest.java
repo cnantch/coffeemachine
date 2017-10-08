@@ -115,4 +115,9 @@ public class OrderTest {
     public void should_return_the_orange_juice_when_the_customer_ask_the_orange_juice() throws Exception {
         Assert.assertEquals("O::", Order.createOrder(Drink.ORANGE_JUICE.getName() + "::").getMessage());
     }
+
+    @Test
+    public void should_return_incorrect_order_when_the_customer_ask_the_orange_juice_wrong() throws Exception {
+        Assert.assertEquals(Order.INCORRECT_ORDER, Order.createOrder(Drink.ORANGE_JUICE.getName() + ":1:0").getMessage());
+    }
 }
