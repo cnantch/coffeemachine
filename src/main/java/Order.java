@@ -7,6 +7,8 @@ public class Order {
     public static final String INCORRECT_ORDER = "incorrect order";
     public static final Pattern VALIDATION_ORDER_PATTERN = Pattern.compile("M:.*|(^(T|C|H)h{0,1}:[0-9]{0,1}:0{0,1})|O::");
     public static final DecimalFormat format = new DecimalFormat("#,##0.0");
+    public static final String RESULT_OK = "OK";
+    public static final String RESULT_KO = "KO,missing ";
 
     private Drink drink;
     private int nbSugars;
@@ -53,8 +55,8 @@ public class Order {
     public String getResult() {
 
         if (price.doubleValue() >= drink.getPrice().doubleValue()) {
-            return "OK";
+            return RESULT_OK;
         }
-        return "KO,missing "+ format.format(drink.getPrice().subtract(price));
+        return RESULT_KO + format.format(drink.getPrice().subtract(price));
     }
 }

@@ -54,7 +54,7 @@ public class OrderTest {
     public void should_return_ok_when_the_customer_ask_for_the_chocolate() throws Exception {
         Order order = Order.createOrder(Drink.CHOCOLATE, 1, BigDecimal.valueOf(0.5));
         Assert.assertEquals("H:1:0", order.getMessage());
-        Assert.assertEquals("OK", order.getResult());
+        Assert.assertEquals(Order.RESULT_OK, order.getResult());
     }
 
     @Test
@@ -68,7 +68,7 @@ public class OrderTest {
     public void should_return_ok_when_the_customer_ask_for_the_chocolate_with_price_upper() throws Exception {
         Order order = Order.createOrder(Drink.CHOCOLATE, 2, BigDecimal.valueOf(0.7));
         Assert.assertEquals("H:2:0", order.getMessage());
-        Assert.assertEquals("OK", order.getResult());
+        Assert.assertEquals(Order.RESULT_OK, order.getResult());
     }
 
 
@@ -76,7 +76,7 @@ public class OrderTest {
     public void should_return_ok_when_the_customer_ask_for_the_cofee() throws Exception {
         Order order = Order.createOrder(Drink.COFFEE, 2, BigDecimal.valueOf(0.6));
         Assert.assertEquals("C:2:0", order.getMessage());
-        Assert.assertEquals("OK", order.getResult());
+        Assert.assertEquals(Order.RESULT_OK, order.getResult());
     }
 
 
@@ -89,26 +89,26 @@ public class OrderTest {
     @Test
     public void should_return_ok_when_the_customer_ask_for_the_coffee_with_price_upper() throws Exception {
         Order order = Order.createOrder(Drink.COFFEE, 1, BigDecimal.valueOf(0.7));
-        Assert.assertEquals("OK", order.getResult());
+        Assert.assertEquals(Order.RESULT_OK, order.getResult());
     }
 
     @Test
     public void should_return_ok_when_the_customer_ask_for_the_tea() throws Exception {
         Order order = Order.createOrder(Drink.TEA, 0, BigDecimal.valueOf(0.4));
         Assert.assertEquals("T:0:0", order.getMessage());
-        Assert.assertEquals("OK", order.getResult());
+        Assert.assertEquals(Order.RESULT_OK, order.getResult());
     }
 
     @Test
     public void should_return_ko_when_the_customer_ask_for_the_tea() throws Exception {
         Order order = Order.createOrder(Drink.TEA, 1, BigDecimal.valueOf(0.3));
-        Assert.assertEquals("KO,missing 0,1", order.getResult());
+        Assert.assertEquals(Order.RESULT_KO +"0,1", order.getResult());
     }
 
     @Test
     public void should_return_ok_when_the_customer_ask_for_the_tea_with_price_upper() throws Exception {
         Order order = Order.createOrder(Drink.TEA, 1, BigDecimal.valueOf(0.7));
-        Assert.assertEquals("OK", order.getResult());
+        Assert.assertEquals(Order.RESULT_OK, order.getResult());
     }
 
     @Test
@@ -123,13 +123,13 @@ public class OrderTest {
 
     @Test
     public void should_return_the_orange_juice_when_the_customer_ask_the_orange_juice_with_the_good_price() throws Exception {
-        Assert.assertEquals("OK", Order.createOrder(Drink.ORANGE_JUICE, 0, BigDecimal.valueOf(0.6)).getResult());
+        Assert.assertEquals(Order.RESULT_OK, Order.createOrder(Drink.ORANGE_JUICE, 0, BigDecimal.valueOf(0.6)).getResult());
     }
 
     @Test
     public void should_return_ko_when_the_customer_ask_for_the_orange_with_the_wrong_price() throws Exception {
         Order order = Order.createOrder(Drink.ORANGE_JUICE, 0, BigDecimal.valueOf(0.3));
-        Assert.assertEquals("KO,missing 0,3", order.getResult());
+        Assert.assertEquals(Order.RESULT_KO +"0,3", order.getResult());
     }
 
     @Test
