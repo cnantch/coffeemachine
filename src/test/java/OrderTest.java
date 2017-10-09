@@ -126,6 +126,12 @@ public class OrderTest {
         Assert.assertEquals(Order.RESULT_OK, Order.createOrder(Drink.ORANGE_JUICE, 0, BigDecimal.valueOf(0.6)).getResult());
     }
 
+
+    @Test
+    public void should_return_incorrect_order__when_the_customer_ask_the_orange_juice_with_the_good_price() throws Exception {
+        Assert.assertEquals(Order.INCORRECT_ORDER, Order.createOrder(Drink.ORANGE_JUICE, 1, BigDecimal.valueOf(0.6)).getMessage());
+    }
+
     @Test
     public void should_return_ko_when_the_customer_ask_for_the_orange_with_the_wrong_price() throws Exception {
         Order order = Order.createOrder(Drink.ORANGE_JUICE, 0, BigDecimal.valueOf(0.3));

@@ -13,15 +13,10 @@ public class Order {
     private Drink drink;
     private int nbSugars;
     private String message;
-    private BigDecimal price;
+    private BigDecimal amount;
 
     private Order(String message) {
         this.message = message;
-    }
-
-    public Order(String message, BigDecimal price) {
-        this.message = message;
-        this.price = price;
     }
 
     public static Order createOrder(String message) {
@@ -33,16 +28,8 @@ public class Order {
 
     public static Order createOrder(Drink drink, int nbSugars, BigDecimal price) {
         Order order = createNewOrder(drink, nbSugars);
-        order.price = price;
+        order.amount = price;
         return order;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public BigDecimal getPrice() {
-        return price;
     }
 
     public static Order createNewOrder(Drink drink, int nbSugars) {
@@ -52,11 +39,19 @@ public class Order {
         return order;
     }
 
+    public String getMessage() {
+        return message;
+    }
+
+    public BigDecimal getAmount() {
+        return amount;
+    }
+
     public String getResult() {
 
-        if (price.doubleValue() >= drink.getPrice().doubleValue()) {
+        if (amount.doubleValue() >= drink.getPrice().doubleValue()) {
             return RESULT_OK;
         }
-        return RESULT_KO + format.format(drink.getPrice().subtract(price));
+        return RESULT_KO + format.format(drink.getPrice().subtract(amount));
     }
 }
